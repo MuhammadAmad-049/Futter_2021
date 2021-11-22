@@ -116,51 +116,51 @@ class _screen2State extends State<screen2> {
                                 CrossAxisAlignment.start,
                                 children: [
                                   //Cut the code and paste in Row as Children
-                                 Row(children: [
-                                   Text(
-                                     "Background App",
-                                     style: TextStyle(
-                                       color: Colors.black,
-                                       fontWeight: FontWeight.w600,
-                                       fontSize: 16,
-                                     ),
-                                   ),
-                                   SizedBox(
-                                     width:4,
-                                   ),
-                                   //Inplace of text add another Widget
-                                   Container(
-                                     height: 20,
-                                     decoration: BoxDecoration(
-                                       color: Color.fromRGBO(
-                                         47,
-                                         207,
-                                         255,
-                                         1,
-                                       ).withOpacity(
-                                         0.4,
-                                       ),
-                                       borderRadius: BorderRadius.circular(
-                                         10,
-                                       ),
-                                     ),
-                                     child: Center(child: Padding(
-                                       padding: EdgeInsets.only(
-                                         left: 1,
-                                         right: 10,
-                                       ),
-                                       child: Text(
-                                         "12",
-                                       ),
-                                     ),
-                                     ),
-                                   ),
-                                 ],
-                                 ),
-                                 SizedBox(height: 4,),
-                                 Text("692MB",
-                                 style: TextStyle(color: Colors.grey),
-                                 ),
+                                  Row(children: [
+                                    Text(
+                                      "Background App",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width:4,
+                                    ),
+                                    //Inplace of text add another Widget
+                                    Container(
+                                      height: 20,
+                                      decoration: BoxDecoration(
+                                        color: Color.fromRGBO(
+                                          47,
+                                          207,
+                                          255,
+                                          1,
+                                        ).withOpacity(
+                                          0.4,
+                                        ),
+                                        borderRadius: BorderRadius.circular(
+                                          10,
+                                        ),
+                                      ),
+                                      child: Center(child: Padding(
+                                        padding: EdgeInsets.only(
+                                          left: 1,
+                                          right: 10,
+                                        ),
+                                        child: Text(
+                                          "12",
+                                        ),
+                                      ),
+                                      ),
+                                    ),
+                                  ],
+                                  ),
+                                  SizedBox(height: 4,),
+                                  Text("692MB",
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
 
                                 ],
                               ),
@@ -369,78 +369,78 @@ class _screen2State extends State<screen2> {
             ),
             //Adding overlaying item in stack
             Positioned(top: 25,right: 30,
-             child: Container(
-                  height: 60,
-                  width: MediaQuery.of(context).size.width/3,
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(3, 162, 209, 1,
-                    ),
-                    borderRadius: BorderRadius.circular(
-                      24,
+              child: Container(
+                height: 60,
+                width: MediaQuery.of(context).size.width/3,
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(3, 162, 209, 1,
+                  ),
+                  borderRadius: BorderRadius.circular(
+                    24,
+                  ),
+                ),
+                child: Center(
+                  child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text:"1.31",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 30,
+                          ),
+                        ),
+                        TextSpan(text:"GB",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  child: Center(
-                    child: RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text:"1.31",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 30,
-                            ),
-                          ),
-                          TextSpan(text:"GB",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-              ),
-              ),
-            //Adding another item int the stack after this widget
-            Align(alignment: Alignment.center,
-            child: Padding(padding: EdgeInsets.only(bottom: 30,),
-            child: Column(mainAxisAlignment: MainAxisAlignment.end,children: [
-              Padding(padding: EdgeInsets.only(left: 28,right: 28,),
-              child: Container(height: 80,
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(
-                  24,
                 ),
               ),
-                child: Center(child: Text("Cleanup will not affect normal user",
-                style:TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.w600,),
-                ),),
-              ),
-              ),
-              SizedBox(height: 50,),
-              Container(width: 180,height: 50,
-              decoration: BoxDecoration(
-                  color: Color.fromRGBO(47, 207, 255,1,),
-              borderRadius: BorderRadius.circular(24)),
-                child: Row(mainAxisAlignment: MainAxisAlignment.center,children: [
-                  Icon(Icons.delete_forever_outlined,
-                  color: Color.fromRGBO(3, 162, 209, 1,),
+            ),
+            //Adding another item int the stack after this widget
+            Align(alignment: Alignment.center,
+              child: Padding(padding: EdgeInsets.only(bottom: 30,),
+                child: Column(mainAxisAlignment: MainAxisAlignment.end,children: [
+                  Padding(padding: EdgeInsets.only(left: 28,right: 28,),
+                    child: Container(height: 80,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(
+                          24,
+                        ),
                       ),
-                  Text("Cleanup 1.31 GB",
-                  style:TextStyle(
-                    color: Color.fromRGBO(3, 162, 209, 1,),
-                    fontSize: 16, fontWeight: FontWeight.w600,
+                      child: Center(child: Text("Cleanup will not affect normal user",
+                        style:TextStyle(color: Colors.black,fontSize: 20,fontWeight: FontWeight.w600,),
+                      ),),
+                    ),
                   ),
-                  ),
-                ],),
-              )
-            ],
-            ),
-            ),
+                  SizedBox(height: 50,),
+                  Container(width: 180,height: 50,
+                    decoration: BoxDecoration(
+                        color: Color.fromRGBO(47, 207, 255,1,),
+                        borderRadius: BorderRadius.circular(24)),
+                    child: Row(mainAxisAlignment: MainAxisAlignment.center,children: [
+                      Icon(Icons.delete_forever_outlined,
+                        color: Color.fromRGBO(3, 162, 209, 1,),
+                      ),
+                      Text("Cleanup 1.31 GB",
+                        style:TextStyle(
+                          color: Color.fromRGBO(3, 162, 209, 1,),
+                          fontSize: 16, fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],),
+                  )
+                ],
+                ),
+              ),
             ),
           ],
         ),

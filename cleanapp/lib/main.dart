@@ -13,6 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Cleanup App',
+
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -188,122 +190,122 @@ class _HomeScreenState extends State<HomeScreen> {
                             right:28,
                             top:58,
                           ),
-                          child: Stack(
-                            children: [
-                            Container(height: 20,
-                              decoration: BoxDecoration(
-                                color:Colors.white,
-                                borderRadius:BorderRadius.circular(
-                              18,
-                              ),
-                            ),
-                            ),
-                            Padding(padding:EdgeInsets.only(
-                              right:65,
-                            ),
-                            child: Container(
-                              height: 20,
-                              decoration: BoxDecoration(
-                                color:Color.fromRGBO(
-                                  3,
-                                  162,
-                                  209,
-                                  1,
-                                ),
-                              borderRadius:BorderRadius.circular(
-                              18,
-                            ),
-                            ),
-                            ),
-                            ),
-                              //copy above padding and paste here
-                              Padding(padding:EdgeInsets.only(
-                                right:270,
-                              ),
-                                child: Container(
-                                  height: 20,
+                            child: Stack(
+                              children: [
+                                Container(height: 20,
                                   decoration: BoxDecoration(
-                                    color:Colors.black,
+                                    color:Colors.white,
                                     borderRadius:BorderRadius.circular(
                                       18,
                                     ),
                                   ),
                                 ),
-                              ),
-                          ],
-                          ),),
+                                Padding(padding:EdgeInsets.only(
+                                  right:65,
+                                ),
+                                  child: Container(
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                      color:Color.fromRGBO(
+                                        3,
+                                        162,
+                                        209,
+                                        1,
+                                      ),
+                                      borderRadius:BorderRadius.circular(
+                                        18,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                //copy above padding and paste here
+                                Padding(padding:EdgeInsets.only(
+                                  right:270,
+                                ),
+                                  child: Container(
+                                    height: 20,
+                                    decoration: BoxDecoration(
+                                      color:Colors.black,
+                                      borderRadius:BorderRadius.circular(
+                                        18,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),),
                           Padding(
-                              padding: EdgeInsets.only(
-                                left: 28,
-                                top:30,
-                              ),
-                          child: Row(children: [
-                            Container(
-                              height:20,
-                              width: 20,
+                            padding: EdgeInsets.only(
+                              left: 28,
+                              top:30,
+                            ),
+                            child: Row(children: [
+                              Container(
+                                height:20,
+                                width: 20,
                                 decoration:BoxDecoration(
                                   color: Colors.black,
                                   shape: BoxShape.circle,
                                 ),
-                              child: Center(
-                                child: Container(
-                                height: 6,
-                                width: 6,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  shape: BoxShape.circle,
-                                ),
-                              ),
-                              ),
-                            ),
-
-                            SizedBox(
-                              width: 8,
-                            ),
-                            Text(
-                              "Used: 22 GB",
-                              style:TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 28,
-                            ),
-                            Container(
-                              height: 24,
-                              width: 24,
-                              decoration:BoxDecoration(
-                                color: Color.fromRGBO(
-                                  3,
-                                  162,
-                                  209,
-                                  1,
-                                ),
-                                shape:BoxShape.circle,
-                              ),
-                              child: Center(
-                                child: Container(
-                                  height: 6,
-                                  width: 6,
-                                  decoration: BoxDecoration(
-                                    color:Colors.white,
-                                    shape:BoxShape.circle,
+                                child: Center(
+                                  child: Container(
+                                    height: 6,
+                                    width: 6,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      shape: BoxShape.circle,
+                                    ),
                                   ),
                                 ),
                               ),
 
-                            ),
-                            //Copy Above Text and paste it here
-                            Text(
-                              "Deletable: 32 GB",
-                              style:TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w700,
+                              SizedBox(
+                                width: 8,
                               ),
+                              Text(
+                                "Used: 22 GB",
+                                style:TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 28,
+                              ),
+                              Container(
+                                height: 24,
+                                width: 24,
+                                decoration:BoxDecoration(
+                                  color: Color.fromRGBO(
+                                    3,
+                                    162,
+                                    209,
+                                    1,
+                                  ),
+                                  shape:BoxShape.circle,
+                                ),
+                                child: Center(
+                                  child: Container(
+                                    height: 6,
+                                    width: 6,
+                                    decoration: BoxDecoration(
+                                      color:Colors.white,
+                                      shape:BoxShape.circle,
+                                    ),
+                                  ),
+                                ),
+
+                              ),
+                              //Copy Above Text and paste it here
+                              Text(
+                                "Deletable: 32 GB",
+                                style:TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
                             ),
-                          ],
-                          ),
                           ),
                           SizedBox(
                             height: 20,
@@ -313,21 +315,21 @@ class _HomeScreenState extends State<HomeScreen> {
                             child:Container(
                               height:45,
                               width: MediaQuery.of(context).size.width/2.25,
-                                decoration: BoxDecoration(
+                              decoration: BoxDecoration(
                                   color: Colors.black,
                                   borderRadius: BorderRadius.only(
-                                    topRight:Radius.circular(
-                                      18,
-                                    )
+                                      topRight:Radius.circular(
+                                        18,
+                                      )
                                   )
-                                ),
+                              ),
                               child: Center(
                                 child: Text(
-                                  "Can be Deleted",
-                                  style:TextStyle(color:Colors.white,fontSize:15,
-                                  fontWeight: FontWeight.w400,
-                                  letterSpacing: 1.2,
-                                  )
+                                    "Can be Deleted",
+                                    style:TextStyle(color:Colors.white,fontSize:15,
+                                      fontWeight: FontWeight.w400,
+                                      letterSpacing: 1.2,
+                                    )
                                 ),
                               ),
                             ),
@@ -336,7 +338,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-                    ),
+                  ),
                   //After this Container Adding another Widget
                   Expanded(child: Container(width:MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
@@ -380,41 +382,41 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: Column(
                                 crossAxisAlignment:
                                 CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Junk caches",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 16,
+                                children: [
+                                  Text(
+                                    "Junk caches",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height:4,
-                                ),
-                                Text(
-                                  "1.31 GB",
-                                  style: TextStyle(
-                                    color: Colors.grey,
+                                  SizedBox(
+                                    height:4,
                                   ),
-                                )
-                              ],
+                                  Text(
+                                    "1.31 GB",
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
                             Spacer(),
-                              Container(height:20,width:20,
+                            Container(height:20,width:20,
                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(8,),
-                              color:Color.fromRGBO(47, 207, 255, 1,),
+                                color:Color.fromRGBO(47, 207, 255, 1,),
 
                               ),
-                                child:Padding(padding:EdgeInsets.all(6,),
+                              child:Padding(padding:EdgeInsets.all(6,),
                                 child:Container(decoration:BoxDecoration(
                                   color:Colors.white,
                                   shape:BoxShape.circle,
                                 ),
                                 ),
-                                ),
                               ),
+                            ),
                           ],
                           ),
 
@@ -486,9 +488,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 child:Container(
                                   decoration:BoxDecoration(
-                                  color:Colors.black, //change color to black
-                                  shape:BoxShape.circle,
-                                ),
+                                    color:Colors.black, //change color to black
+                                    shape:BoxShape.circle,
+                                  ),
                                 ),
                               ),
                             ),
@@ -657,53 +659,53 @@ class _HomeScreenState extends State<HomeScreen> {
                             onTap: (){
                               Navigator.push(
                                 context,
-                              MaterialPageRoute(
+                                MaterialPageRoute(
                                   builder: (_) =>screen2(),
-                              ),
+                                ),
                               );
                             },
                             behavior: HitTestBehavior.opaque,
                             child: Container(
-                            height:50,
-                            width:180,
-                            decoration: BoxDecoration(
-                              color: Color.fromRGBO(
-                                47,
-                                207,
-                                255,
-                                1,
-                              ).withOpacity(0.5,),
-                              borderRadius: BorderRadius.circular(
-                                24,
+                              height:50,
+                              width:180,
+                              decoration: BoxDecoration(
+                                color: Color.fromRGBO(
+                                  47,
+                                  207,
+                                  255,
+                                  1,
+                                ).withOpacity(0.5,),
+                                borderRadius: BorderRadius.circular(
+                                  24,
+                                ),
                               ),
-                            ),
-                            child: Row(mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.delete_outline,
-                              color: Color.fromRGBO(
-                                3,
-                                162,
-                                209,
-                                1,
+                              child: Row(mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(Icons.delete_outline,
+                                    color: Color.fromRGBO(
+                                      3,
+                                      162,
+                                      209,
+                                      1,
+                                    ),
+                                  ),
+                                  Text("Cleanup 1.31 GB",
+                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600,
+                                      color: Color.fromRGBO(
+                                        3,
+                                        162,
+                                        209,
+                                        1,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              ),
-                              Text("Cleanup 1.31 GB",
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600,
-                              color: Color.fromRGBO(
-                                3,
-                                162,
-                                209,
-                                1,
-                              ),
-                              ),
-                              ),
-                              ],
                             ),
                           ),
+                          SizedBox(
+                            height: 25,
                           ),
-                            SizedBox(
-                              height: 25,
-                            ),
                         ],
                         ),
                       ),
@@ -714,38 +716,38 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               //Adding the overlapping widget
               Positioned(child: Container(
-                height: 60,
-                width: MediaQuery.of(context).size.width/3,
-                decoration: BoxDecoration(
-                  color: Color.fromRGBO(3, 162, 209, 1,
-                  ),
-                  borderRadius: BorderRadius.circular(
-                    24,
-                  ),
-                ),
-                child: Center(
-                  child: RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text:"1.31",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 30,
-                          ),
-                        ),
-                        TextSpan(text:"GB",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16,
-                        ),
-                        ),
-                      ],
+                  height: 60,
+                  width: MediaQuery.of(context).size.width/3,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(3, 162, 209, 1,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      24,
                     ),
                   ),
-                )
+                  child: Center(
+                    child: RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text:"1.31",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 30,
+                            ),
+                          ),
+                          TextSpan(text:"GB",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
               ),
                 top: 335,
                 right: 30,
