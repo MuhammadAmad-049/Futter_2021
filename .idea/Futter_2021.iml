@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/BMI-Calculators/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/BMI-Calculators/build" />
+      <excludeFolder url="file://$MODULE_DIR$/untitled1/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/untitled1/build" />
+      <excludeFolder url="file://$MODULE_DIR$/counting app for kids/build" />
+      <excludeFolder url="file://$MODULE_DIR$/counting app for kids/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/untitled/build" />
+      <excludeFolder url="file://$MODULE_DIR$/untitled/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/cleanapp/build" />
+      <excludeFolder url="file://$MODULE_DIR$/cleanapp/.pub" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
