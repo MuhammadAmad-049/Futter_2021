@@ -1,21 +1,38 @@
+// ignore_for_file: non_constant_identifier_names, prefer_const_constructors, deprecated_member_use
+
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:tailor_note_book/Signup_page.dart';
+import 'package:tailor_note_book/SplashScreen.dart';
 import 'package:tailor_note_book/view_details.dart';
-
 import 'addRecord.dart';
+import 'profile.dart';
+import 'package:firebase_database/firebase_database.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const signup());
+}
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const appTitle ='Tailor Book';
+  static const appTitle = 'Tailor Book';
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final ref = FirebaseDatabase.instance.ref().child(UserProfile.uid);
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: appTitle,
-      home: MyHomePage(title: appTitle),
+      title: MyApp.appTitle,
+      home: MyHomePage(title: MyApp.appTitle),
     );
   }
 }
@@ -28,19 +45,22 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(title),backgroundColor: Colors.teal,
+      appBar: AppBar(
+        title: Text(title),
+        backgroundColor: Colors.teal,
         actions: <Widget>[
-        IconButton(
-          icon: Icon(
-            Icons.search,
-            color: Colors.white,
-            size: 22,
-          ),
-          onPressed: () {
-            // do something
-          },
-        )
-      ],),
+          IconButton(
+            icon: const Icon(
+              Icons.search,
+              color: Colors.white,
+              size: 22,
+            ),
+            onPressed: () {
+              // do something
+            },
+          )
+        ],
+      ),
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
         // through the options in the drawer if there isn't enough vertical
@@ -53,16 +73,18 @@ class MyHomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.teal,
               ),
-              child: Text('Application Name',
+              child: Text(
+                'Application Name',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 16,
-                ),),
+                ),
+              ),
             ),
-
             ListTile(
               leading: const Icon(Icons.home),
-              title: const Text('Home',
+              title: const Text(
+                'Home',
                 style: TextStyle(
                   color: Colors.black38,
                   fontSize: 14.0,
@@ -77,7 +99,8 @@ class MyHomePage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.mode),
-              title: const Text('New Record',
+              title: const Text(
+                'New Record',
                 style: TextStyle(
                   color: Colors.black38,
                   fontSize: 14.0,
@@ -92,7 +115,8 @@ class MyHomePage extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.exit_to_app),
-              title: const Text('Sign out',
+              title: const Text(
+                'Sign out',
                 style: TextStyle(
                   color: Colors.black38,
                   fontSize: 14.0,
@@ -105,776 +129,80 @@ class MyHomePage extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
-
           ],
         ),
       ),
-      body: new Center(
-        child: ListView(
-          children: [
-            SizedBox(height: 10,),
-          Container(
-          height: 70,
-          decoration: BoxDecoration (
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-          BoxShadow(
-          color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ]
-          ),
-          child: Row(
-              children: [
-                const SizedBox(width: 15),
-                Column(
-                  children: const [
-                    SizedBox(height: 20,),
-                    Text('Name',style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontFamily: 'Lobster',
-                    ),),
-                    SizedBox(height: 5,),
-                    Text('Address',style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontFamily: 'Lobster',
-                    ),),
-                  ],
-                ),
-                const Spacer(),
-                MaterialButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Theme.of(context).primaryColor),
-                  ),
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (Context)=>view_details()));
-                    },
-                  child: Text('View Detail',style: TextStyle(
-                    fontSize: 14,
-                    color: Colors.white,
-                  ),),
-                  color: Colors.teal,
-                  ),
-                    ]
-                ),
-                 ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){
+      body: StreamBuilder(
+        stream: ref.onValue,
+        builder: (context, AsyncSnapshot<DatabaseEvent> snap) {
+          if (snap.hasData) {
+            if (snap.data!.snapshot.value != null) {
+              DataSnapshot ds = snap.data!.snapshot;
+              Map map = ds.value as Map;
+              map = map[UserProfile.uid];
+              var list = [];
 
-                      },
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
+              map.forEach((key, value) {
+                list.add(key);
+              });
+              return ListView.builder(
+                  itemCount: list.length,
+                  itemBuilder: (_, index) {
+                    Map item = map[list[index]];
+                    return Padding(
+                      padding:
+                          const EdgeInsets.only(top: 10, left: 25, right: 25),
+                      child: Container(
+                        height: 80,
+                        width: MediaQuery.of(context).size.width - 50,
+                        decoration: BoxDecoration(color: Colors.green),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(item["name"]),
+                                  Text(item["address"]),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                                child: FlatButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (_) =>
+                                              view_details(list[index], item),
+                                        ),
+                                      );
+                                    },
+                                    child: Text("Details")))
+                          ],
+                        ),
                       ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              height: 70,
-              decoration: BoxDecoration (
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]
-              ),
-              child: Row(
-                  children: [
-                    const SizedBox(width: 15),
-                    Column(
-                      children: const [
-                        SizedBox(height: 20,),
-                        Text('Name',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontFamily: 'Lobster',
-                        ),),
-                        SizedBox(height: 5,),
-                        Text('Address',style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontFamily: 'Lobster',
-                        ),),
-                      ],
-                    ),
-                    const Spacer(),
-                    MaterialButton(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(color: Theme.of(context).primaryColor),
-                      ),
-                      onPressed: (){},
-                      child: Text('View Detail',style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.white,
-                      ),),
-                      color: Colors.teal,
-                    ),
-                  ]
-              ),
-            ),
-          ]
-          ),
-        ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (Context)=>AddRecord()));
+                    );
+                  });
+            } else {
+              return Center(
+                child: Text("No data Exist"),
+              );
+            }
+          } else {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (Context) => AddRecord()));
         },
         tooltip: 'Add new Record',
-        child: new Icon(Icons.add),
+        child: Icon(Icons.add),
         backgroundColor: Colors.blue,
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
