@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'Signup_page.dart';
+
 import 'get_started.dart';
 import 'main.dart';
 

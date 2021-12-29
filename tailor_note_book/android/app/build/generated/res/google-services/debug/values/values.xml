@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">867277306627-k2kbjiflqaarpmr5qdnffh4led3q2e30.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">867277306627</string>
+    <string name="google_api_key" translatable="false">AIzaSyCgGt26KelSANH-EeB9ta4wtclgza_ktGE</string>
+    <string name="google_app_id" translatable="false">1:867277306627:android:089944104a4d7b47de4736</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCgGt26KelSANH-EeB9ta4wtclgza_ktGE</string>
+    <string name="google_storage_bucket" translatable="false">tailor-notebook.appspot.com</string>
+    <string name="project_id" translatable="false">tailor-notebook</string>
+</resources>

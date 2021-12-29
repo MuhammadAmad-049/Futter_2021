@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'main.dart';
 
 class view_details extends StatelessWidget {
-  const view_details({Key? key}) : super(key: key);
+  final number = '+238192834902';
 
   @override
   Widget build(BuildContext context) {
@@ -199,32 +200,28 @@ class view_details extends StatelessWidget {
                   return (value != null && value.contains('@')) ? 'Do not use the @ char.' : null;
                 },
               ),
-              SizedBox(height: 5,),
-              Expanded(child:  FlatButton(
-                // shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                height: 50,
-                minWidth: 170,
-                color: Colors.teal,
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (Context)=>MyApp()));
-                }, child: Text('Save Record',style: TextStyle(
-                color: Colors.white,
+              RaisedButton(
+                child: Text("Call"),
+                onPressed: () async {
+                launch('tell://$number');
+                await FlutterPhoneDirectCaller.callNumber(number);
+                },
               ),
-              ),
-              ),),
+
 
             ]
         ),
       ),
-      floatingActionButton: new FloatingActionButton(
-        onPressed: (){
-
+      floatingActionButton: FloatingActionButton(
+          onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (Context)=> view_details()));
         },
         tooltip: 'Update Record',
-        child: new Icon(Icons.update ),
+        child: new Icon(Icons.mode),
         backgroundColor: Colors.blue,
-      ),
-    );
+
+
+      ), );
 
   }
 }
