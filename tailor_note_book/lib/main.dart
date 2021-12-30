@@ -1,43 +1,30 @@
 // ignore_for_file: non_constant_identifier_names, prefer_const_constructors, deprecated_member_use
-
+import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:tailor_note_book/Signup_page.dart';
 import 'package:tailor_note_book/SplashScreen.dart';
 import 'package:tailor_note_book/view_details.dart';
-<<<<<<< HEAD
-import 'package:anim_search_bar/anim_search_bar.dart';
 import 'addRecord.dart';
-import 'package:firebase_core/firebase_core.dart';
-
-Future<void> main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const MyApp());}
-=======
-import 'addRecord.dart';
+import 'loginScreen.dart';
 import 'profile.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const signup());
+  runApp(const MyApp());
 }
->>>>>>> 6e89a04fd54728a777f5472717d4d8cee90e001c
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-<<<<<<< HEAD
-=======
+
   static const appTitle = 'Tailor Book';
 
   @override
   State<MyApp> createState() => _MyAppState();
 }
->>>>>>> 6e89a04fd54728a777f5472717d4d8cee90e001c
 
 class _MyAppState extends State<MyApp> {
   final ref = FirebaseDatabase.instance.ref().child(UserProfile.uid);
@@ -45,59 +32,24 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-<<<<<<< HEAD
-
-      home: MyHomePage(),
-=======
       title: MyApp.appTitle,
-      home: MyHomePage(title: MyApp.appTitle),
->>>>>>> 6e89a04fd54728a777f5472717d4d8cee90e001c
+      home: LoginScreen(title: MyApp.appTitle),
     );
   }
 }
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
-class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController textController = TextEditingController();
+  final String title;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
-
-      appBar: AppBar(title: Text("Tailor Book"),
-        backgroundColor: Colors.teal,
-        actions: [
-          SizedBox(
-            height: 20,
-            child: AnimSearchBar(
-
-              width: 300,
-              textController: textController,
-              prefixIcon: Icon(Icons.search,color: Colors.teal,),
-              suffixIcon:Icon(Icons.close,color: Colors.teal,) ,
-              closeSearchOnSuffixTap: true,
-              onSuffixTap: () {
-                setState(() {
-                  textController.clear();
-                });
-              },
-            ),
-          )
-
-
-        ],
-
-      ),
-
-
-=======
       appBar: AppBar(
-        title: Text(title),
+        title: Text(
+        'Customer Record',
+        style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.teal,
         actions: <Widget>[
           IconButton(
@@ -112,7 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
->>>>>>> 6e89a04fd54728a777f5472717d4d8cee90e001c
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll
         // through the options in the drawer if there isn't enough vertical
@@ -122,16 +73,13 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
+
+
               decoration: BoxDecoration(
+        image: DecorationImage(image:NetworkImage ('https://tse4.mm.bing.net/th?id=OIP.EFkZcF8bT_2Qbpk0MnyTlAHaE8&pid=Api&P=0&w=267&h=179'),
+          fit: BoxFit.cover,),
                 color: Colors.teal,
-              ),
-              child: Text(
-                'Application Name',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                ),
-              ),
+              ), child: null,
             ),
             ListTile(
               leading: const Icon(Icons.home),
@@ -184,73 +132,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-<<<<<<< HEAD
-
-      body: Center(
-        child: ListView(
-            children: [
-              SizedBox(height: 10,),
-              Container(
-                height: 70,
-                decoration: BoxDecoration (
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: Offset(0, 3), // changes position of shadow
-                      ),
-                    ]
-                ),
-                child: Row(
-                    children: [
-                      const SizedBox(width: 15),
-                      Column(
-                        children: const [
-                          SizedBox(height: 20,),
-                          Text('Name',style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 18,
-                            fontFamily: 'Lobster',
-                          ),),
-                          SizedBox(height: 5,),
-                          Text('Address',style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                            fontFamily: 'Lobster',
-                          ),),
-                        ],
-                      ),
-                      const Spacer(),
-                      MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: BorderSide(color: Theme.of(context).primaryColor),
-                        ),
-                        onPressed: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (Context)=>view_details()));
-                        },
-                        child: Text('View Detail',style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.white,
-                        ),),
-                        color: Colors.teal,
-                      ),
-                    ]
-                ),
-              ),
-
-            ]
-        ),
-
-      ),
-
-      floatingActionButton: new FloatingActionButton(
-        onPressed: (){
-          Navigator.push(context, MaterialPageRoute(builder: (Context)=>AddRecord()));
-=======
       body: StreamBuilder(
         stream: ref.onValue,
         builder: (context, AsyncSnapshot<DatabaseEvent> snap) {
@@ -270,24 +151,56 @@ class _MyHomePageState extends State<MyHomePage> {
                     Map item = map[list[index]];
                     return Padding(
                       padding:
-                          const EdgeInsets.only(top: 10, left: 25, right: 25),
+                          const EdgeInsets.only(top: 10, left: 5, right: 5,bottom:5),
                       child: Container(
                         height: 80,
                         width: MediaQuery.of(context).size.width - 50,
-                        decoration: BoxDecoration(color: Colors.green),
+
+                        decoration: BoxDecoration(color: Colors.white,
+                          boxShadow: [
+                            //background color of box
+                            BoxShadow(
+                              color: Colors.black38,
+                              blurRadius: 5.0, // soften the shadow
+                              spreadRadius: 2.0, //extend the shadow
+                              offset: Offset(
+                                2.0, // Move to right 10  horizontally
+                                2.0, // Move to bottom 10 Vertically
+                              ),
+                            )
+                          ],
+                          borderRadius: BorderRadius.circular(5),
+                        ),
                         child: Row(
                           children: [
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(item["name"]),
-                                  Text(item["address"]),
+                                  Text(item["name"],style: TextStyle(fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold
+
+
+                                  ),),
+
+                                  Text(item["address"],style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold
+
+                                  ),),
                                 ],
                               ),
                             ),
                             Expanded(
                                 child: FlatButton(
+                                    height: 35,
+                                    shape: new RoundedRectangleBorder(
+                                      borderRadius: new BorderRadius.circular(10.0),
+                                    ),
+                                    color: Colors.teal,
+                                    textColor: Colors.black,
+
                                     onPressed: () {
                                       Navigator.push(
                                         context,
@@ -319,11 +232,10 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () {
           Navigator.push(
               context, MaterialPageRoute(builder: (Context) => AddRecord()));
->>>>>>> 6e89a04fd54728a777f5472717d4d8cee90e001c
         },
         tooltip: 'Add new Record',
         child: Icon(Icons.add),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.teal,
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

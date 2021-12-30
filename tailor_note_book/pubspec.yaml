@@ -42,28 +42,14 @@ dev_dependencies:
 
   flutter_lints: ^1.0.0
   flutter_image_slideshow: any
-<<<<<<< HEAD
-  flutter_phone_direct_caller: ^2.1.0
-  anim_search_bar : ^2.0.2
-  firebase_core: ^1.10.6
-  firebase_database: ^9.0.4
-  firebase_auth:
-  provider: ^4.3.1
-  country_code_picker: ^2.0.2
-  pinput: ^1.2.0
-  advance_notification: ^1.0.5
-  alert: ^2.0.1
-  url_launcher: ^6.0.17
-
-
-
-
-
-=======
   firebase_core:
   firebase_database:
   firebase_auth:
->>>>>>> 6e89a04fd54728a777f5472717d4d8cee90e001c
+
+  provider:
+  country_code_picker:
+  pinput:
+  anim_search_bar:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

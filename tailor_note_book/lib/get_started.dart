@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 
-
-import 'Authentication/OTP.dart';
-import 'addRecord.dart';
+import 'loginScreen.dart';
 import 'main.dart';
 
 
@@ -104,7 +102,7 @@ class _GetStartedPageState extends State<get_started> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) =>  MyApp()),
+                    builder: (context) => const LoginScreen(title: ' ',)),
               );
             },
             shape: RoundedRectangleBorder(

@@ -1,26 +1,15 @@
-<<<<<<< HEAD
-import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
-import 'package:url_launcher/url_launcher.dart';
-=======
 // ignore_for_file: camel_case_types, prefer_const_constructors, deprecated_member_use, non_constant_identifier_names, no_logic_in_create_state, must_be_immutable
 
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:tailor_note_book/profile.dart';
->>>>>>> 6e89a04fd54728a777f5472717d4d8cee90e001c
 import 'main.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
-<<<<<<< HEAD
-class view_details extends StatelessWidget {
-  final number = '+238192834902';
-=======
 class view_details extends StatefulWidget {
   Map map;
   String key2;
   view_details(this.key2, this.map, {Key? key}) : super(key: key);
->>>>>>> 6e89a04fd54728a777f5472717d4d8cee90e001c
 
   @override
   State<view_details> createState() => _view_detailsState(key2, map);
@@ -72,17 +61,22 @@ class _view_detailsState extends State<view_details> {
           key: key,
           child: ListView(children: [
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             TextFormField(
+
               onSaved: (str) {
                 map["name"] = str!;
               },
               initialValue: map["name"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
+
                 hintText: 'Full Name',
                 labelText: 'Name',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -91,7 +85,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -99,9 +93,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["contact"],
               decoration: InputDecoration(
-                icon: Icon(Icons.call),
                 hintText: 'Phone Number',
                 labelText: 'Contact',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -110,7 +107,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -118,9 +115,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["address"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Address',
                 labelText: 'Address',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -129,7 +129,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -137,9 +137,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["length"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Length',
                 labelText: 'Length',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -148,7 +151,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -156,9 +159,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["armLength"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Arm Length',
                 labelText: 'Arm Length',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -167,7 +173,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -175,9 +181,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["teera"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Teera',
                 labelText: 'Teera',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -186,7 +195,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -194,9 +203,13 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["ghera"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
+
                 hintText: 'Boundary(Ghera)',
                 labelText: 'Boundary(Ghera)',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -205,7 +218,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -213,9 +226,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["shalwarLength"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Shalwar Length',
                 labelText: 'Shalwar Length',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -224,7 +240,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -232,9 +248,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["paincha"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Paincha',
                 labelText: 'Paincha',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -243,7 +262,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -251,9 +270,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["collarTip"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Collar Tip',
                 labelText: 'Collar Tip',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -262,7 +284,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -270,9 +292,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["cuff"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Cuff',
                 labelText: 'Cuff',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -281,7 +306,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -289,9 +314,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["frontPocket"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Front Pocket (Yes/No)',
                 labelText: 'Front Pocket',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -300,7 +328,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -308,9 +336,12 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["sidePocket"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Side Pocket (Yes/No)',
                 labelText: 'Side Pocket ',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -319,7 +350,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -327,9 +358,13 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["shalwarPocket"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
+
                 hintText: 'Shalwar Pocket (Yes/No)',
                 labelText: 'Shalwar Pocket',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
               validator: (String? value) {
                 return (value != null && value.contains('@'))
@@ -338,7 +373,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             TextFormField(
               onSaved: (str) {
@@ -346,35 +381,13 @@ class _view_detailsState extends State<view_details> {
               },
               initialValue: map["boundary"],
               decoration: InputDecoration(
-                icon: Icon(Icons.person),
                 hintText: 'Boundary(Round/Square)',
                 labelText: 'Boundary(Round/Square)',
+                border: new OutlineInputBorder(
+                  borderRadius: new BorderRadius.circular(10.0),
+                  borderSide: new BorderSide(),
+                ),
               ),
-<<<<<<< HEAD
-              RaisedButton(
-                child: Text("Call"),
-                onPressed: () async {
-                launch('tell://$number');
-                await FlutterPhoneDirectCaller.callNumber(number);
-                },
-              ),
-
-
-            ]
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-          onPressed: (){
-        Navigator.push(context, MaterialPageRoute(builder: (Context)=> view_details()));
-        },
-        tooltip: 'Update Record',
-        child: new Icon(Icons.mode),
-        backgroundColor: Colors.blue,
-
-
-      ), );
-
-=======
               validator: (String? value) {
                 return (value != null && value.contains('@'))
                     ? 'Do not use the @ char.'
@@ -382,7 +395,7 @@ class _view_detailsState extends State<view_details> {
               },
             ),
             SizedBox(
-              height: 5,
+              height: 20,
             ),
             Expanded(
               child: FlatButton(
@@ -399,11 +412,13 @@ class _view_detailsState extends State<view_details> {
                   }
                 },
                 child: Text(
-                  'Save Record',
+                  'Update and Save Record',
                   style: TextStyle(
+
                     color: Colors.white,
                   ),
                 ),
+
               ),
             ),
           ]),
@@ -415,9 +430,8 @@ class _view_detailsState extends State<view_details> {
         },
         tooltip: 'Call now',
         child: Icon(Icons.call),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.green,
       ),
     );
->>>>>>> 6e89a04fd54728a777f5472717d4d8cee90e001c
   }
 }
